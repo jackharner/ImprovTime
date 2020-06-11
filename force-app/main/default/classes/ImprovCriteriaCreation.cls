@@ -1,6 +1,8 @@
-public class ImprovCriteriaCreation {
+@RestResource(urlMapping='/ImprovCreation/*')
+global class ImprovCriteriaCreation {
 	
-    public static void getImprovCriteria(){
+    @HttpGet
+    global static String getImprovCriteria(){
         
 		List<String> characterTypes = new List<String>{'Farmer', 'Newspaper Salesman', 'Anchorman',
 													  'Reporter', 'Politician', 'Infant','Hiker',
@@ -19,7 +21,10 @@ public class ImprovCriteriaCreation {
     	}
     	while(characterTypesNumber1 == characterTypesNumber2);
         
-        System.debug('Scenario: ' + characterTypes[characterTypesNumber1] + ', ' + characterTypes[characterTypesNumber2] + ', ' + settings[settingsNumber] + ', ' + activities[activitiesNumber]);
+        String returnString = 'Scenario: ' + characterTypes[characterTypesNumber1] + ', ' + characterTypes[characterTypesNumber2]
+            				   + ', ' + settings[settingsNumber] + ', ' + activities[activitiesNumber];
+        System.debug(returnString);
+        return returnString;
         
 	}
     
